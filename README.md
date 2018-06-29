@@ -2,7 +2,7 @@ cosjs.mvc
 
 Install with:
 
-    npm install cosjs.nvc
+    npm install cosjs.mvc
 
 
 
