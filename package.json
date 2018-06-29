@@ -1,0 +1,35 @@
+{
+  "name": "cosjs.mvc",
+  "description": "nodejs mvc",
+  "version": "0.0.0",
+  "main": "./index.js",
+  "author": {
+    "name": "wanchao.huang",
+    "email": "hwclegend@163.com"
+  },
+  "keywords": [ "game", "mvc" ],
+  "licenses": [
+    {
+      "type": "Apache License, Version 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "dependencies": {
+    "cosjs.loader": "*",
+    "cosjs.library": "*"
+  },
+  "engines": {
+    "node": "4.0+"
+  },
+  "directories": {
+    "lib": "./lib/"
+  },
+  "repository": {
+    "type": "https",
+    "url": "https://github.com/hwclegend/cosjs.mvc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hwclegend/cosjs.mvc/issues"
+  },
+  "homepage": "https://github.com/hwclegend/cosjs.mvc"
+}
