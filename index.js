@@ -1,14 +1,8 @@
 "use strict";
 
-const keys = ["hooks","model","config","format"];
+const keys = ["model","config","format","library"];
 
 
 for(let k of keys){
     exports[k] = require("./lib/"+k);
-}
-
-exports.reload = function(){
-    for(let k of keys){
-        exports[k]["loader"].reload();
-    }
 }
