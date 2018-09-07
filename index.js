@@ -10,7 +10,7 @@ for(let k of keys){
 //附加模块
 function plugs (path){
     let opt = require(path);
-    if(!opt || !opt['root'] || !opt['modules'] || !opt['namespace'] ){
+    if(!opt || !opt['root'] || !opt['modulelist'] || !opt['namespace'] ){
         return;
     }
 
@@ -25,10 +25,10 @@ function plugs (path){
     let namespace = opt['namespace'];
     _plugs_modules[namespace] = opt;
 
-    for(let k of opt['modules']){
+    for(let k in opt['modulelist']){
         if(keys.indexOf(k) >=0){
             let loader = exports[k].loader;
-            append_loader_files(loader,opt['modules'][k],namespace,opt['root']);
+            append_loader_files(loader,opt['modulelist'][k],namespace,opt['root']);
         }
     }
 }
@@ -36,20 +36,19 @@ function plugs (path){
 plugs.append = function(loader,key){
     for(let name in _plugs_modules){
         let opt = _plugs_modules[name];
-        if(opt['modules'][key]){
-            append_loader_files(loader,opt['modules'][key],opt['namespace'],opt['root']);
+        if(opt['modulelist'][key]){
+            append_loader_files(loader,opt['modulelist'][key],opt['namespace'],opt['root']);
         }
     }
 }
 
 function append_loader_files(loader,path,namespace,root) {
-    if(Array.isArray(path)){
-        for(let p of path){
-            loader.addFile(root +'/'+ p,namespace)
-        }
+    let real_path = [root , path].join("/")
+    if(path.indexOf(".") >=0){
+        loader.addFile(real_path,namespace)
     }
     else{
-        loader.addPath(root +'/'+ path,namespace)
+        loader.addPath(real_path,namespace)
     }
 }
 
