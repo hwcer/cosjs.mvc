@@ -1,6 +1,6 @@
 "use strict";
 
-const keys = ["handle","model","config","format","library"];
+const keys = ["model","config","format","library"];
 const _plugs_modules = {};
 for(let k of keys){
     let v = require("./lib/"+k);
